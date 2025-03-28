@@ -3,124 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Background Image</title>
+    <title>Intel.netlify</title>
     <style>
+        /* Background Image */
         body {
             background-image: url('https://files.catbox.moe/ny6jv9.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-        }
-    </style>
-</head>
-<body>
-</body>
-</html>
-
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intel.netlify</title>
-    <style>
-        body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
+            color: #ffcc00; /* Neon Yellow */
+            text-shadow: 2px 2px 4px black; /* Black outline */
             margin: 0;
             padding: 0;
-        }
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
             text-align: center;
         }
-        nav {
-            background-color: #333;
-            display: flex;
-            justify-content: center;
-            padding: 10px;
+
+        /* Overlay for readability */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            z-index: -1;
         }
-        nav a {
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #575757;
-        }
+
         main {
             padding: 20px;
         }
-        h1 {
-            color: #007bff;
+
+        h1, h2, p {
+            color: #ffcc00; /* Neon Yellow */
+            text-shadow: 2px 2px 4px black; /* Black outline */
         }
+
         .content {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
         }
+
         .card {
-            background-color: white;
+            background-color: transparent; /* Fully transparent */
+            border: 2px solid #ffcc00; /* Neon yellow border */
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             width: 300px;
             padding: 15px;
-            text-align: center;
         }
+
         .card h2 {
-            color: #007bff;
+            color: #ffcc00; /* Neon Yellow */
+            text-shadow: 2px 2px 4px black; /* Black outline */
         }
+
         footer {
-            background-color: #333;
-            color: white;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px black;
             text-align: center;
             padding: 10px;
             margin-top: 20px;
         }
+
+        a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Button Styling */
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .custom-button {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: black;
+            font-weight: bold;
+            text-shadow: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+            transition: 0.3s ease;
+        }
+
+        .custom-button:hover {
+            background-color: black;
+            color: #ffcc00;
+            border: 2px solid #ffcc00;
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Accessible Website</h1>
-</header>
-
 <main>
-    <section id="home" aria-labelledby="home-section">
-        <h2 id="home-section">Welcome to intelxo.netlify</h2>
-        <p>We ensure all users have the most secure OSINTING services on the market</p>
+    <section id="home">
+        <h1>Welcome to Intelxo</h1>
+        <p>We provide top-tier OSINTING services with cutting-edge security.</p>
     </section>
 
-    <section id="about" aria-labelledby="about-section">
-        <h2 id="about-section">About My Service</h2>
-        <p>We are committed to making the web a more inovated place for all people who like cyber security, data analyist, or and regardless of what your doing</p>
+    <section id="about">
+        <h2>About My Service</h2>
+        <p>Dedicated to innovation in cybersecurity, data analysis, and intelligence gathering.</p>
     </section>
 
-    <section id="services" aria-labelledby="services-section">
-        <h2 id="services-section">My Services</h2>
+    <section id="services">
+        <h2>My Services</h2>
         <div class="content">
-            <div class="card" aria-labelledby="service1">
-                <h2 id="service1">OSINTING/CSINTING Or a CyberSecurity Course.</h2>
-                <p>We offer correct data reports to the most updated breaches. Or a full cyber security course.</p>
+            <div class="card">
+                <h2>OSINT & CSINT Services</h2>
+                <p>Accurate data reports on breaches, or enroll in our cybersecurity course.</p>
             </div>
-            <div class="card" aria-labelledby="service2">
-                <h2 id="service2">Cheap Prices</h2>
-                <p>Prices ranging from $5-10 USD for comprehensive searches</p>
+            <div class="card">
+                <h2>Affordable Pricing</h2>
+                <p>Prices start at just $5-$10 for in-depth investigations.</p>
             </div>
-            <div class="card" aria-labelledby="service3">
-                <h2 id="service3">Services</h2>
-                <p>Services include OSINT, CSINT. Contents you must bring for searches to be done include Email Address, Phone Number, IP Address, and much more.</p>
+            <div class="card">
+                <h2>Comprehensive Search</h2>
+                <p>We provide OSINT and CSINT searches using Email, Phone, IP, and more.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" aria-labelledby="contact-section">
-        <h2 id="contact-section">Join the discord in which you can request a search report @ discord.gg/FBskmHKnbU</h2>
-        <p>Reach out to us if you have any questions/conerns at intelnetworksport30@gmail.com or for faster response contact my telegram - intelnets</p>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: intelnetworksport30@gmail.com</p>
+
+        <!-- Buttons -->
+        <div class="button-container">
+            <a href="https://t.me/intelnets" class="custom-button" target="_blank">Message on Telegram</a>
+            <a href="https://discord.gg/FBskmHKnbU" class="custom-button" target="_blank">Join Discord</a>
+        </div>
     </section>
 </main>
 
