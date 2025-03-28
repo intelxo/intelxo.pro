@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        main {
+            padding: 20px;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 15px;
+            text-align: center;
+        }
+        .card h2 {
+            color: #007bff;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Accessible Website</h1>
+</header>
+
+<nav role="navigation" aria-label="Main Navigation">
+    <a href="#home" tabindex="0">Home</a>
+    <a href="#about" tabindex="0">About</a>
+    <a href="#services" tabindex="0">Services</a>
+    <a href="#contact" tabindex="0">Contact</a>
+</nav>
+
+<main>
+    <section id="home" aria-labelledby="home-section">
+        <h2 id="home-section">Welcome to intelxo.html</h2>
+        <p>We ensure all users have the most secure OSINTING services on the market</p>
+    </section>
+
+    <section id="about" aria-labelledby="about-section">
+        <h2 id="about-section">About Us</h2>
+        <p>We are committed to making the web a more inovated place for all people who like cyber security, data analyist, or and regardless of what your doing</p>
+    </section>
+
+    <section id="services" aria-labelledby="services-section">
+        <h2 id="services-section">Our Services</h2>
+        <div class="content">
+            <div class="card" aria-labelledby="service1">
+                <h2 id="service1">OSINTING/CSINTING</h2>
+                <p>We offer correct data reports to the most updated breaches.</p>
+            </div>
+            <div class="card" aria-labelledby="service2">
+                <h2 id="service2">Report a user</h2>
+                <p>Coming soon still updating.</p>
+            </div>
+            <div class="card" aria-labelledby="service3">
+                <h2 id="service3">Digital Marketing</h2>
+                <p>We assist in crafting the perfect digital marketing strategy for your business.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-section">
+        <h2 id="contact-section">Contact Us</h2>
+        <p>Reach out to us if you have any questions/conerns at intelnetworksport30@gmail.com or for faster response contact my telegram - intelnets</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 intelxo.pro</p>
+</footer>
+
+</body>
+</html>
