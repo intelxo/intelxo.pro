@@ -151,34 +151,34 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         let audio = document.getElementById("bg-music");
+        let audioStarted = false; // Prevent multiple play triggers
 
         function playAudio() {
-            let playPromise = audio.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    console.log("Autoplay started successfully.");
+            if (!audioStarted) { // Ensure it only starts once
+                audio.volume = 1.0; // Set full volume (optional)
+                audio.play().then(() => {
+                    audioStarted = true; // Mark as started
+                    console.log("Audio started successfully.");
                 }).catch(error => {
-                    console.log("Autoplay blocked, trying alternative...");
-                    setTimeout(() => {
-                        audio.play().catch(err => console.log("Still blocked:", err));
-                    }, 2000);
+                    console.log("Autoplay blocked, waiting for user interaction...");
                 });
             }
         }
 
-        // Try to autoplay in multiple ways
-        setTimeout(() => {
-            playAudio();
-        }, 500); // Small delay to make it more likely to bypass
+        // Restart audio when it ends to create a manual loop
+        audio.addEventListener("ended", function() {
+            audio.currentTime = 0; // Reset to beginning
+            audio.play();
+        });
 
+        // Try autoplay on page load
         window.addEventListener("load", () => {
             setTimeout(() => {
                 playAudio();
-            }, 1000);
+            }, 5000);
         });
 
-        // Also try using user interactions (if needed)
+        // Enable on user interaction (as a fallback)
         document.addEventListener("click", () => playAudio(), { once: true });
     });
 </script>
