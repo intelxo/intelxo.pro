@@ -18,7 +18,6 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            cursor: pointer; /* Indicate interactivity */
         }
 
         /* Overlay for readability */
@@ -29,7 +28,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            background: rgba(0, 0, 0, 0.6);
             z-index: -1;
         }
 
@@ -38,8 +37,8 @@
         }
 
         h1, h2, p {
-            color: #ffcc00; /* Neon Yellow */
-            text-shadow: 2px 2px 4px black; /* Black outline */
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px black;
         }
 
         .content {
@@ -74,7 +73,6 @@
             text-decoration: underline;
         }
 
-        /* Button Styling */
         .button-container {
             margin-top: 20px;
         }
@@ -140,7 +138,6 @@
         <h2>Contact Us</h2>
         <p>Email: intelnetworksport30@gmail.com</p>
 
-        <!-- Buttons -->
         <div class="button-container">
             <a href="https://t.me/intelnets" class="custom-button" target="_blank">Message on Telegram</a>
             <a href="https://discord.gg/FBskmHKnbU" class="custom-button" target="_blank">Join Discord</a>
@@ -153,12 +150,38 @@
 </footer>
 
 <script>
-    document.addEventListener("click", function() {
+    document.addEventListener("DOMContentLoaded", function() {
         let audio = document.getElementById("bg-music");
-        if (audio.paused) {
-            audio.play().catch(error => console.log("Playback error:", error));
+
+        function playAudio() {
+            let playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log("Autoplay started successfully.");
+                }).catch(error => {
+                    console.log("Autoplay blocked, trying alternative...");
+                    setTimeout(() => {
+                        audio.play().catch(err => console.log("Still blocked:", err));
+                    }, 2000);
+                });
+            }
         }
-    }, { once: true }); // Ensures music starts only on first click
+
+        // Try to autoplay in multiple ways
+        setTimeout(() => {
+            playAudio();
+        }, 500); // Small delay to make it more likely to bypass
+
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                playAudio();
+            }, 1000);
+        });
+
+        // Also try using user interactions (if needed)
+        document.addEventListener("click", () => playAudio(), { once: true });
+    });
 </script>
 
 </body>
