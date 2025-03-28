@@ -32,18 +32,36 @@
             z-index: -1;
         }
 
+        /* Welcome Screen */
+        .welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: #ffcc00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            z-index: 1000;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
         main {
             max-width: 900px;
             margin: 30px auto;
             padding: 20px;
         }
 
-        section {
-            margin-bottom: 40px; /* Reduced from 60px */
-        }
-
         h1 {
-            font-size: 2.5em; /* Slightly smaller */
+            font-size: 2.5em;
             margin-bottom: 15px;
         }
 
@@ -54,7 +72,7 @@
 
         p {
             font-size: 1.1em;
-            margin-bottom: 15px; /* Slightly reduced */
+            margin-bottom: 15px;
         }
 
         footer {
@@ -75,13 +93,6 @@
         }
 
         /* Button Styling */
-        .button-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
         .custom-button {
             display: inline-block;
             background-color: #ffcc00;
@@ -100,14 +111,13 @@
             color: #ffcc00;
             border: 2px solid #ffcc00;
         }
-
-        /* Spacing in services */
-        .services p {
-            margin-bottom: 12px;
-        }
     </style>
 </head>
 <body>
+
+<div class="welcome-screen" id="welcome-screen" onclick="fadeOutWelcome()">
+    Welcome to Intelxo
+</div>
 
 <!-- Background Music -->
 <audio id="bg-music" loop>
@@ -123,14 +133,12 @@
 
     <section id="about">
         <h2>About My Service</h2>
-        <p>Dedicated to innovation in cybersecurity, data analysis, and intelligence gathering.</p>
+        <p>Dedicated to innovation in Cybersecurity, Data Analysis, And Intelligence Gathering.</p>
     </section>
 
-    <section id="services" class="services">
+    <section id="services">
         <h2>My Services</h2>
-        <p><strong>OSINT & CSINT Services:</strong> Accurate data reports on breaches, or enroll in our cybersecurity course.</p>
-        <p><strong>Affordable Pricing:</strong> Prices start at just $5-$10 for in-depth investigations.</p>
-        <p><strong>Comprehensive Search:</strong> We provide OSINT and CSINT searches using Email, Phone, IP, and more.</p>
+        <p><strong>OSINT & CSINT Services:</strong> Accurate Data Reports On Latest Breaches, Or Enroll In Our Cyber Security Course.</p>
     </section>
 
     <section id="contact">
@@ -149,38 +157,15 @@
 </footer>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    function fadeOutWelcome() {
+        let welcomeScreen = document.getElementById("welcome-screen");
         let audio = document.getElementById("bg-music");
-        let audioStarted = false; // Prevent multiple play triggers
-
-        function playAudio() {
-            if (!audioStarted) { // Ensure it only starts once
-                audio.volume = 1.0; // Set full volume (optional)
-                audio.play().then(() => {
-                    audioStarted = true; // Mark as started
-                    console.log("Audio started successfully.");
-                }).catch(error => {
-                    console.log("Autoplay blocked, waiting for user interaction...");
-                });
-            }
-        }
-
-        // Restart audio when it ends to create a manual loop
-        audio.addEventListener("ended", function() {
-            audio.currentTime = 0; // Reset to beginning
+        welcomeScreen.classList.add("fade-out");
+        setTimeout(() => {
+            welcomeScreen.style.display = "none";
             audio.play();
-        });
-
-        // Try autoplay on page load
-        window.addEventListener("load", () => {
-            setTimeout(() => {
-                playAudio();
-            }, 1000);
-        });
-
-        // Enable on user interaction (as a fallback)
-        document.addEventListener("click", () => playAudio(), { once: true });
-    });
+        }, 2000); // Matches fade-out duration
+    }
 </script>
 
 </body>
