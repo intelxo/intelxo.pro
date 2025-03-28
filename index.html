@@ -12,7 +12,7 @@
             background-position: center;
             background-repeat: no-repeat;
             font-family: Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: #ffcc00; /* Neon Yellow */
             text-shadow: 2px 2px 4px black; /* Black outline */
             margin: 0;
@@ -33,35 +33,36 @@
         }
 
         main {
+            max-width: 900px;
+            margin: 30px auto;
             padding: 20px;
         }
 
-        h1, h2, p {
-            color: #ffcc00;
-            text-shadow: 2px 2px 4px black;
+        section {
+            margin-bottom: 40px; /* Reduced from 60px */
         }
 
-        .content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+        h1 {
+            font-size: 2.5em; /* Slightly smaller */
+            margin-bottom: 15px;
         }
 
-        .card {
-            background-color: transparent;
-            border: 2px solid #ffcc00;
-            border-radius: 5px;
-            width: 300px;
-            padding: 15px;
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 15px; /* Slightly reduced */
         }
 
         footer {
             color: #ffcc00;
             text-shadow: 2px 2px 4px black;
             text-align: center;
-            padding: 10px;
-            margin-top: 20px;
+            padding: 15px 0;
+            font-size: 1em;
         }
 
         a {
@@ -73,8 +74,12 @@
             text-decoration: underline;
         }
 
+        /* Button Styling */
         .button-container {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
         }
 
         .custom-button {
@@ -86,7 +91,7 @@
             padding: 10px 20px;
             border-radius: 5px;
             text-decoration: none;
-            margin: 10px;
+            font-size: 1.1em;
             transition: 0.3s ease;
         }
 
@@ -94,6 +99,11 @@
             background-color: black;
             color: #ffcc00;
             border: 2px solid #ffcc00;
+        }
+
+        /* Spacing in services */
+        .services p {
+            margin-bottom: 12px;
         }
     </style>
 </head>
@@ -116,22 +126,11 @@
         <p>Dedicated to innovation in cybersecurity, data analysis, and intelligence gathering.</p>
     </section>
 
-    <section id="services">
+    <section id="services" class="services">
         <h2>My Services</h2>
-        <div class="content">
-            <div class="card">
-                <h2>OSINT & CSINT Services</h2>
-                <p>Accurate data reports on breaches, or enroll in our cybersecurity course.</p>
-            </div>
-            <div class="card">
-                <h2>Affordable Pricing</h2>
-                <p>Prices start at just $5-$10 for in-depth investigations.</p>
-            </div>
-            <div class="card">
-                <h2>Comprehensive Search</h2>
-                <p>We provide OSINT and CSINT searches using Email, Phone, IP, and more.</p>
-            </div>
-        </div>
+        <p><strong>OSINT & CSINT Services:</strong> Accurate data reports on breaches, or enroll in our cybersecurity course.</p>
+        <p><strong>Affordable Pricing:</strong> Prices start at just $5-$10 for in-depth investigations.</p>
+        <p><strong>Comprehensive Search:</strong> We provide OSINT and CSINT searches using Email, Phone, IP, and more.</p>
     </section>
 
     <section id="contact">
