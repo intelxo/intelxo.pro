@@ -111,12 +111,31 @@
             color: #ffcc00;
             border: 2px solid #ffcc00;
         }
+
+        /* Visitor Counter Style */
+        #visitor-counter {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
 
 <div class="welcome-screen" id="welcome-screen" onclick="fadeOutWelcome()">
     Welcome to Intelxo.netlify
+</div>
+
+<!-- Visitor Counter (injected HTML) -->
+<div id="visitor-counter">
+    Visitors: <span id="visitor-count">0</span>
 </div>
 
 <!-- Background Music -->
@@ -157,6 +176,7 @@
 </footer>
 
 <script>
+    // Fade out the welcome screen
     function fadeOutWelcome() {
         let welcomeScreen = document.getElementById("welcome-screen");
         let audio = document.getElementById("bg-music");
@@ -166,7 +186,23 @@
             audio.play();
         }, 2000); // Matches fade-out duration
     }
+
+    // Visitor Counter Logic
+    (function() {
+        const counter = document.getElementById('visitor-count');
+        let visitorCount = localStorage.getItem('visitorCount') || 0;
+        visitorCount = parseInt(visitorCount) + 1;
+        localStorage.setItem('visitorCount', visitorCount);
+
+        counter.textContent = visitorCount;
+    })();
 </script>
 
 </body>
 </html>
+
+<h2>Changes Made</h2>
+<h2c>Added Visitor Counter,</h2c>
+<h2c>Revamped Site (Added image, song, colorful words),</h2c>
+<h2c>Updates in the discord,</h2c>
+<h2c>Fixed Telegram Link Not Working,</h2c>
